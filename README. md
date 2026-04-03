@@ -1,0 +1,200 @@
+# 🧠 Driver Drowsiness Detection using Deep Learning
+
+## 📌 Project Overview
+
+Driver fatigue is one of the leading causes of road accidents. This project presents a **non-intrusive, vision-based Driver Drowsiness Detection System** that analyzes facial features such as **eye closure and yawning** using Deep Learning.
+
+The system classifies driver states and tracks fatigue progression over time to enhance road safety and enable real-time alert systems.
+
+---
+
+## 🎯 Objectives
+
+* Detect **eye state** (Open / Closed)
+* Detect **mouth state** (Yawn / No Yawn)
+* Combine predictions to determine **fatigue level**
+* Analyze **fatigue progression over time**
+
+---
+
+## 🛠️ Tech Stack
+
+* Python
+* TensorFlow / Keras
+* OpenCV
+* NumPy, Matplotlib
+* Scikit-learn
+
+---
+
+## 🧠 Models Used
+
+### 🔹 1. Custom CNN
+
+* Built from scratch
+* Used as a baseline model
+* Moderate accuracy (~80%)
+
+### 🔹 2. MobileNetV2 (Transfer Learning)
+
+* Pretrained on ImageNet
+* Frozen base layers + custom classifier
+* Achieved **~90%+ validation accuracy**
+
+---
+
+## 📂 Project Structure
+
+```
+driver-drowsiness-detection/
+│
+├── dataset/
+│   ├── train/
+│   ├── val/
+│   └── test/
+│
+├── notebooks/
+│   ├── 01_data_preprocessing.ipynb
+│   ├── 02_cnn_model.ipynb
+│   ├── 03_mobilenet_model.ipynb
+│   ├── 04_fatigue_analysis.ipynb
+│   └── 05_results_visualization.ipynb
+│
+├── models/
+│   ├── cnn_model.h5
+│   └── mobilenet_model.h5
+│
+├── outputs/
+│   ├── accuracy_plot.png
+│   ├── loss_plot.png
+│   ├── confusion_matrix.png
+│   ├── fatigue_curve.png
+│   └── results.txt
+│
+└── README.md
+```
+
+---
+
+## 📊 Dataset
+
+The dataset consists of facial images categorized into:
+
+* Eyes Open
+* Eyes Closed
+* Yawn
+* No Yawn
+
+Images are:
+
+* Resized to 224×224
+* Normalized
+* Augmented (rotation, zoom, flipping)
+
+---
+
+## ⚙️ Approach
+
+### 1. Data Preprocessing
+
+* Image resizing and normalization
+* Data augmentation
+* Train-validation-test split
+
+### 2. Model Training
+
+* Custom CNN for baseline
+* MobileNetV2 for high-performance classification
+
+### 3. Evaluation
+
+* Accuracy and loss curves
+* Confusion matrix
+* Test dataset performance
+
+### 4. Decision Fusion Logic
+
+| Eye State | Mouth State | Fatigue Level      |
+| --------- | ----------- | ------------------ |
+| Open      | No Yawn     | Alert (0)          |
+| Open      | Yawn        | Mild Fatigue (1)   |
+| Closed    | Any         | Severe Fatigue (2) |
+
+---
+
+## 📈 Fatigue Progression Analysis
+
+* Predictions are converted into **numerical fatigue scores**
+* Scores are tracked over time (frame-by-frame)
+* A **fatigue progression curve** is generated
+
+### Example:
+
+```
+0 → Alert
+1 → Mild Fatigue
+2 → Severe Fatigue
+```
+
+This allows detection of:
+
+* Gradual fatigue increase
+* Critical fatigue stages
+* Recovery patterns
+
+---
+
+## 📊 Results
+
+* CNN Accuracy: ~80%
+* MobileNetV2 Accuracy: ~90%+
+* Stable training with minimal overfitting
+* Effective fatigue stage classification
+
+---
+
+## 💼 Applications
+
+* 🚗 Driver Monitoring Systems (DMS)
+* 🚛 Fleet Safety Management
+* 🚘 Advanced Driver Assistance Systems (ADAS)
+* 🧠 Smart Mobility Solutions
+
+---
+
+## 🚀 Future Improvements
+
+* Real-time webcam integration
+* Alert system (alarm / vibration)
+* Deployment using Streamlit or Flask
+* Integration with IoT devices
+
+---
+
+## 🧠 Key Learnings
+
+* Deep Learning for Computer Vision
+* Transfer Learning using MobileNetV2
+* Image preprocessing techniques
+* Time-series fatigue analysis
+* Real-world AI system design
+
+---
+
+## 👨‍💻 Author
+
+**Vishwamugi PM**
+
+---
+
+## ⭐ Acknowledgment
+
+This project is developed as part of an advanced AI/ML learning program focusing on real-world applications of Deep Learning in safety systems.
+
+---
+
+## 📌 Conclusion
+
+This project successfully demonstrates how deep learning can be used to build an intelligent, real-time driver monitoring system that enhances road safety by detecting and analyzing driver fatigue.
+
+---
